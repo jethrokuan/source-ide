@@ -1,6 +1,7 @@
 import Path from 'path';
 import Koa from 'koa';
-import websockify from './koa_ws';
+import websockify from 'koa-websocket';
+import WebSocketJSONStream from 'websocket-json-stream';
 import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
 import session from 'koa-session';
@@ -11,7 +12,14 @@ import finalHandler from './lib/middlewares/finalHandler';
 import router from './routes/router';
 import wsRoutes from './routes/ws';
 
-const app = websockify(new Koa());
+import backend from './db';
+
+const app = websockify(new Koa(), {
+  "onConnection": function(socket) {
+    const stream = new WebSocketJSONStream(socket);
+    backend.listen(stream);
+  }
+});
 
 app.use(finalHandler());
 
