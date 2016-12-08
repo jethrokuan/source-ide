@@ -22,8 +22,10 @@
     "koa-static": "^2.0.0",
     "koa-views": "next",
     "koa-websocket": "git+https://github.com/jethrokuan/koa-websocket#next",
+    "mongodb": "^2.2.14",
     "nunjucks": "^3.0.0",
     "sharedb": "^1.0.0-beta.7",
+    "sharedb-mongo": "^1.0.0-beta.3",
     "sharedb-string-binding": "^1.0.0",
     "websocket-json-stream": "^0.0.3"
   },
@@ -31,6 +33,7 @@
     "babel-cli": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
     "browserify": "^13.1.1",
+    "eslint-plugin-import": "^2.2.0",
     "nodemon": "^1.11.0",
     "watchify": "^3.7.0"
   }
