@@ -7,10 +7,10 @@
   "author": "Jethro Kuan <jethrokuan95@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node main.js",
-    "dev": "nodemon --exec babel-node main.js",
-    "bundle": "browserify client/client.js -o public/js/bundle.js",
-    "bundle:watch": "watchify client/client.js -o public/js/bundle.js"
+    "start": "babel-node server/main.js",
+    "dev": "nodemon --exec babel-node server/main.js",
+    "bundle": "browserify client/client.js -o server/public/js/bundle.js",
+    "bundle:watch": "watchify client/client.js -o server/public/js/bundle.js"
   },
   "dependencies": {
     "koa": "next",
