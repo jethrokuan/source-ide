@@ -1,30 +1,20 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var StringBinding = require('sharedb-string-binding');
 var connection = require('./connection');
+var id = window.location.pathname.substring(6);
 
-// Create local Doc instance mapped to 'examples' collection document with id 'textarea'
-var doc = connection.get('examples', 'textarea');
-
-function createIfNeeded(doc,callback) {
-  if (doc.type === null) {
-    console.log("creating document");
-    doc.create("hello", callback);
-    return;
-  }
-}
+var doc = connection.get('gists', id);
 
 function subscribeToChanges(doc) {
-  return function() {
-    doc.subscribe(function(err) {
-      if (err) throw err;
-      var element = document.querySelector('textarea');
-      var binding = new StringBinding(element, doc); 
-      binding.setup();
-    });
-  };
+  doc.subscribe(function(err) {
+    if (err) throw err;
+    var element = document.querySelector('textarea');
+    var binding = new StringBinding(element, doc); 
+    binding.setup();
+  });
 }
 
-createIfNeeded(doc, subscribeToChanges(doc));
+subscribeToChanges(doc);
 
 },{"./connection":2,"sharedb-string-binding":10}],2:[function(require,module,exports){
 var sharedb = require('sharedb/lib/client');
