@@ -21,7 +21,7 @@
     "koa-session": "^3.4.0",
     "koa-static": "^2.0.0",
     "koa-views": "next",
-    "koa-websocket": "github:jethrokuan/koa-websocket#next",
+    "koa-websocket": "git+https://github.com/jethrokuan/koa-websocket#next",
     "nunjucks": "^3.0.0",
     "sharedb": "^1.0.0-beta.7",
     "sharedb-string-binding": "^1.0.0",

@@ -1879,9 +1879,18 @@ koa-views@next:
     koa-send "^3.1.0"
     mz "^2.4.0"
 
-"koa-websocket@github:jethrokuan/koa-websocket#next":
+"koa-websocket@git+https://github.com/jethrokuan/koa-websocket#next":
   version "3.0.1"
-  resolved "https://codeload.github.com/jethrokuan/koa-websocket/tar.gz/1aa27703802ccd7a745adbce80f1e392e4825fc1"
+  resolved "git+https://github.com/jethrokuan/koa-websocket#b6d3ec47e4a9dfc9bea5d21d1b6dda3e2bc41fc8"
+  dependencies:
+    co "^4.4.0"
+    debug "^2.1.2"
+    koa-compose "^3.0.0"
+    ws "^1.1.0"
+
+koa-websocket@next:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/koa-websocket/-/koa-websocket-3.0.1.tgz#582720faaa6d90f8a0fec5bd86f6b3ce9ab814c5"
   dependencies:
     co "^4.4.0"
     debug "^2.1.2"
