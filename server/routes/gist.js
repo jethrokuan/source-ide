@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 import backend from '../db';
+import authenticated from  '../lib/middlewares/authenticated';
 
 const router = new Router();
 
@@ -11,6 +12,8 @@ const createIfNeeded = (doc) => {
     }
   });
 };
+
+router.use(authenticated());
 
 router.get('/gist/:id', async (ctx) => {
   const conn = backend.connect();
