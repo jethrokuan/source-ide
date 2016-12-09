@@ -3,10 +3,6 @@ import backend from '../db';
 
 const router = new Router();
 
-router.get('/', async (ctx) => {
-  await ctx.render('index');
-});
-
 const createIfNeeded = (doc) => {
   doc.fetch((err) => {
     if (err) throw err;
@@ -23,4 +19,4 @@ router.get('/gist/:id', async (ctx) => {
   await ctx.render('index');
 });
 
-export default router;
+module.exports = router;

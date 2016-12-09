@@ -12,4 +12,4 @@ router.all('/', async ctx => {
   });
 });
 
-export default router;
+module.exports = router;
