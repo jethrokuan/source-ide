@@ -10,7 +10,8 @@
     "start": "babel-node server/main.js",
     "dev": "nodemon --exec babel-node server/main.js",
     "bundle": "browserify client/client.js -o server/public/js/bundle.js",
-    "bundle:watch": "watchify client/client.js -o server/public/js/bundle.js"
+    "bundle:watch": "watchify client/client.js -o server/public/js/bundle.js",
+    "lint": "eslint server/**.js"
   },
   "dependencies": {
     "koa": "next",

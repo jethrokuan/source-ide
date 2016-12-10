@@ -47,4 +47,13 @@ To auto-rebuild the client files, we use `watchify`.
 yarn bundle:watch
 ```
 
+## Development
+### eslint
+A consistent Javascript code style is ensured with eslint. Please make sure there are no errors before pushing up to master. (Warnings are fine; usually they are uses of `console.log`).
+
+Run eslint with:
+```sh
+yarn lint
+```
+
 Then open `http://localhost:3000`
