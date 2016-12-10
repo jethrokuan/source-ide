@@ -7,8 +7,12 @@ router.get('/login', async (ctx) => {
   await ctx.render('auth/login');
 });
 
+router.get('/signup', async (ctx) => {
+  await ctx.render('auth/signup');
+});
+
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/gist/1000',
+  successRedirect: '/gists',
   failureRedirect: '/login',
 }));
 

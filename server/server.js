@@ -1,5 +1,5 @@
 // Generic Deps
-import Path from 'path';
+import path from 'path';
 
 // Koa Deps
 import Koa from 'koa';
@@ -12,6 +12,8 @@ import MongoStore from 'koa-generic-session-mongo';
 import views from 'koa-views';
 import convert from 'koa-convert';
 import serve from 'koa-static';
+
+import nunjucks from 'nunjucks';
 
 // Auth
 import passport from 'koa-passport';
@@ -34,11 +36,17 @@ const app = websockify(new Koa(), {
 
 app.use(finalHandler());
 
-app.use(views(`${__dirname}/views`, {
+app.use(views(path.join(__dirname, 'views'), {
+  extension: 'njk',
   map: {
-    html: 'nunjucks',
+    njk: 'nunjucks',
   },
 }));
+
+nunjucks.configure(path.join(__dirname, 'views'), {
+  autoescape: true,
+});
+
 app.use(logger());
 app.use(bodyParser());
 
@@ -55,7 +63,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Static folder
-app.use(serve(Path.join(__dirname, 'public')));
+app.use(serve(path.join(__dirname, 'public')));
 
 // Routes setup
 Object.values(routes).forEach((route) => {
