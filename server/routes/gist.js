@@ -36,6 +36,13 @@ router.get('/gists/new', async (ctx) => {
 });
 
 router.get('/gist/:id', async (ctx) => {
+  const q = await Gist.findById(ctx.params.id).exec((err, gist) => {
+    if (err) throw err;
+    console.log(gist);
+    ctx.state.codeId = gist.code;
+    ctx.state.testcaseId = gist.testcase;
+  });
+  
   await ctx.render('gists/show');
 });
 

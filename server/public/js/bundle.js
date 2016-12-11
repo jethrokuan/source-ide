@@ -3,18 +3,18 @@ var StringBinding = require('sharedb-string-binding');
 var connection = require('./connection');
 var id = window.location.pathname.substring(6);
 
-var doc = connection.get('gists', id);
+var code = connection.get('codepad', codeId);
 
 function subscribeToChanges(doc) {
   doc.subscribe(function(err) {
     if (err) throw err;
     var element = document.querySelector('textarea');
-    var binding = new StringBinding(element, doc); 
+    var binding = new StringBinding(element, doc);
     binding.setup();
   });
 }
 
-subscribeToChanges(doc);
+subscribeToChanges(code);
 
 },{"./connection":2,"sharedb-string-binding":10}],2:[function(require,module,exports){
 var sharedb = require('sharedb/lib/client');
