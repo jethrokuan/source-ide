@@ -17,7 +17,6 @@ gistSchema.pre('save', async function presave(next) {
     const code = new Codepad();
     const testcase = new Codepad();
 
-    console.log(code);
     this.code = code.id;
     this.testcase = testcase.id;
   }
