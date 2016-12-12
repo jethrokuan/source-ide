@@ -4,3 +4,4 @@ npm-debug.log
 /yarn-error.log
 *.tern-port
 /.vagrant/
+server/public/js/bundle.js
