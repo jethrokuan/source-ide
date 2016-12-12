@@ -1,9 +1,9 @@
-var StringBinding = require('sharedb-string-binding');
-var connection = require('./connection');
-var id = window.location.pathname.substring(6);
+const StringBinding = require('sharedb-string-binding');
+const connection = require('./connection');
 
 var code = connection.get('codepad', codeId);
 
+console.log(code);
 function subscribeToChanges(doc) {
   doc.subscribe(function(err) {
     if (err) throw err;

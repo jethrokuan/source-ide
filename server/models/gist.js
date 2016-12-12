@@ -8,22 +8,18 @@ const gistSchema = new Schema({
   participants: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   code: { type: Schema.Types.ObjectId, ref: 'codepad' },
   testcase: { type: Schema.Types.ObjectId, ref: 'codepad' },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
+}, {
+  timestamps: true,
 });
 
 gistSchema.pre('save', async function presave(next) {
-  const now = new Date();
-  this.updatedAt = now;
   if (this.isNew) {
-    this.createdAt = now;
-    const code = new Codepad({});
-    const testcase = new Codepad({});
-    await code.save();
-    await testcase.save();
+    const code = new Codepad();
+    const testcase = new Codepad();
 
-    this.code = code._id;
-    this.testcase = testcase._id;
+    console.log(code);
+    this.code = code.id;
+    this.testcase = testcase.id;
   }
   next();
 });

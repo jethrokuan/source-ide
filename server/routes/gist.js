@@ -29,7 +29,7 @@ router.get('/gists/new', async (ctx) => {
           gistid = gist._id;
           await gist.save();
           user.gists.push(gist._id);
-          await user.save(); 
+          await user.save();
         });
 
   await ctx.redirect(`/gist/${gistid}`);
