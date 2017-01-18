@@ -7,7 +7,7 @@ function subscribeToChanges(doc) {
   doc.subscribe(function(err) {
     if (err) throw err;
     var element = document.querySelector('textarea');
-    var binding = new StringBinding(element, doc);
+    var binding = new StringBinding(element, doc, ["code"]); 
     doc.on('op', function(op, source) {
       var node = document.createElement("LI");
       var textnode = document.createTextNode(JSON.stringify(op)); 

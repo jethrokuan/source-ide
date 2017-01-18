@@ -8,7 +8,10 @@ class CodePad {
     const id = mongoose.Types.ObjectId();
     const conn = backend.connect();
     const doc = conn.get('codepad', id);
-    doc.create('function hello() { return true; }');
+    doc.create({
+      "code": "function() {hello;}",
+      "testcases": "hellotest"
+    });
     this.id = id;
     this.createdAt = Date.now();
   }
