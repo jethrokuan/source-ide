@@ -14,15 +14,26 @@
  }
  textarea {
      font: 14px/1.3 sans-serif;
-     padding: 4px 8px;
-     height: 100%;
-     width: 100%;
+     padding: 4px 8px; 
      box-sizing: border-box;
+ }
+
+ .flex {
+     display: flexbox;
+     align-items: flex-start;
  }
 </style>
 
 <body>
-  <textarea autofocus></textarea>
+  <div class="flex">
+    <textarea autofocus></textarea>
+    <div id="logz">
+      <h1>Log</h1>
+      <ol id="logs">
+        
+      </ol>
+    </div>
+  </div>
 </body>
 
 <script type="text/javascript">
