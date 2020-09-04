@@ -26,7 +26,7 @@
     "koa-static": "^2.0.0",
     "koa-views": "next",
     "koa-websocket": "git+https://github.com/jethrokuan/koa-websocket#next",
-    "mongodb": "^2.2.14",
+    "mongodb": "^3.1.13",
     "mongoose": "^4.7.2",
     "nunjucks": "^3.0.0",
     "passport-local": "^1.0.0",
